@@ -151,19 +151,21 @@ class Drone:
         pass
 
     def play_noise(self):
-        
+        import os
+        import time
+        import threading
     
         base_dir = os.path.dirname(os.path.abspath(__file__))
-        sound_file = os.path.join(base_dir, "beep.wav")
+        sound_file = os.path.join(base_dir, "beep-01a.wav")
     
         def beep_until_landing():
             while self.get_altitude() != 0:
-              os.system(f'aplay "{sound_file}"')
-              time.sleep(0.5)
+                os.system(f'aplay "{sound_file}"')
+                time.sleep(0.5)
             print("Landed! Beeping stopped.")
     
     
-    threading.Thread(target=beep_until_landing, daemon=True).start()
+        threading.Thread(target=beep_until_landing, daemon=True).start()
         
           
         
