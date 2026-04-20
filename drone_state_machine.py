@@ -162,7 +162,7 @@ class Drone:
               time.sleep(0.5)
             print("Landed! Beeping stopped.")
     
-    # اجرای بوق در ترد جداگانه تا state بتونه ادامه بده
+    
     threading.Thread(target=beep_until_landing, daemon=True).start()
         
           
